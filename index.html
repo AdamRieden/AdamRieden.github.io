@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Adam Rieden - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -106,6 +106,28 @@
             margin-bottom: 1rem;
         }
         
+        .project-card .tech-stack {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .featured-project {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+        }
+        
+        .game-media {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -126,6 +148,10 @@
             border-radius: 10px;
         }
         
+        .contact-info p {
+            margin-bottom: 0.75rem;
+        }
+        
         .contact-info a {
             color: #667eea;
             text-decoration: none;
@@ -133,6 +159,24 @@
         
         .contact-info a:hover {
             text-decoration: underline;
+        }
+        
+        .experience-section {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .experience-section h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-section .role {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
         }
         
         footer {
@@ -155,14 +199,15 @@
 </head>
 <body>
     <header>
-        <h1>Your Name</h1>
-        <p>Web Developer | Designer | Creative Problem Solver</p>
+        <h1>Adam Rieden</h1>
+        <p>Computer Science Student | Game Developer | Problem Solver</p>
     </header>
     
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -172,55 +217,95 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Hello! I'm a passionate developer with a love for creating beautiful and functional websites. I enjoy turning complex problems into simple, elegant solutions.</p>
-                <p style="margin-top: 1rem;">When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.</p>
+                <p>I'm a Computer Science student at Brandeis University (Class of 2026) with a passion for game development and software engineering. Currently, I'm designing and developing a roguelike multiplayer video game, demonstrating my expertise in game mechanics and programming.</p>
+                <p style="margin-top: 1rem;">As a former Gameplay QA Intern at Castix LLC and a dedicated varsity athlete, I've developed strong teamwork, communication, and time management skills. I thrive in collaborative environments and enjoy turning complex problems into elegant, functional solutions.</p>
+                <p style="margin-top: 1rem;">When I'm not coding or competing in track and field, you'll find me playtesting games, exploring new technologies, or working on personal projects that push my technical abilities.</p>
             </div>
         </section>
         
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A description of your first project. Explain what it does, what technologies you used, and what problems it solves.</p>
+                <div class="project-card featured-project">
+                    <h3>Roguelike Multiplayer Game</h3>
+                    <p>A roguelike multiplayer video game featuring a dynamic leveling system, interactive items, and diverse skill trees. Built from scratch to demonstrate expertise in game mechanics, multiplayer networking, and player progression systems.</p>
+                    <div class="tech-stack">GDScript, Godot Engine</div>
+                    <div class="game-media">
+                        [Game screenshot/GIF will go here]<br>
+                        Add your gameplay footage, level designs, or character sprites
+                    </div>
                 </div>
+                
                 <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A description of your second project. Highlight the key features and your role in the development process.</p>
+                    <h3>Data Visualization Project</h3>
+                    <p>Collaborated in weekly sprint reviews and pair programming sessions to create interactive data visualizations. Developed skills in Agile methodologies and collaborative coding practices.</p>
+                    <div class="tech-stack">Tableau, Python, R</div>
                 </div>
+                
                 <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A description of your third project. Share what you learned and what makes this project special.</p>
+                    <h3>Website Development</h3>
+                    <p>Worked in an Agile team with rotating roles including programmer, team facilitator, and sprint reviewer. Implemented containerization and cloud deployment strategies for continuous integration and delivery.</p>
+                    <div class="tech-stack">Docker, Microsoft Azure, GitHub, React</div>
                 </div>
+                
+                <div class="project-card">
+                    <h3>Haunted House Event</h3>
+                    <p>Directed the full lifecycle of a haunted house production from initial planning to execution. Led a team of 11-15 members, managing budgets and delegating tasks to create a safe and memorable experience for guests.</p>
+                    <div class="tech-stack">Project Management, Team Leadership</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-section">
+                <h3>Castix LLC Indie Game Studio</h3>
+                <p class="role">Gameplay QA Intern | Sept 2025 - Dec 2025</p>
+                <p>Playtested levels and maps to identify bugs, balance issues, and opportunities for improving gameplay and player experience. Logged and categorized issues in internal bug tracking systems, following company reporting guidelines.</p>
+            </div>
+            
+            <div class="experience-section">
+                <h3>Brandeis University</h3>
+                <p class="role">Computer Science Student | Expected May 2026</p>
+                <p>GPA: 3.56 | Minor in Mathematics</p>
+                <p style="margin-top: 0.5rem;">Relevant Coursework: Natural Language Processing, Machine Learning, Operating Systems, Theory of Computation, Information Visualization, Advanced Java, Data Structures, Linear Algebra</p>
             </div>
         </section>
         
         <section id="skills">
             <h2>Skills</h2>
             <div class="skills">
-                <span class="skill-tag">HTML & CSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Java</span>
                 <span class="skill-tag">Python</span>
-                <span class="skill-tag">UI/UX Design</span>
+                <span class="skill-tag">GDScript</span>
+                <span class="skill-tag">React</span>
                 <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">MINI Assembly</span>
+                <span class="skill-tag">Game Development</span>
+                <span class="skill-tag">Agile Methodologies</span>
             </div>
         </section>
         
         <section id="contact">
             <h2>Contact</h2>
             <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+                <p><strong>Email:</strong> <a href="mailto:adamrieden@outlook.com">adamrieden@outlook.com</a></p>
+                <p><strong>Phone:</strong> 978-302-2123</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/AdamRieden" target="_blank">github.com/AdamRieden</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/adam-rieden" target="_blank">linkedin.com/in/adam-rieden</a></p>
+                <p><strong>Location:</strong> Littleton, MA</p>
             </div>
         </section>
     </div>
     
     <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
     </footer>
 </body>
 </html>
