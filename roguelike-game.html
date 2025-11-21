@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roguelike Multiplayer Game - Adam Rieden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 2rem 0 0 2rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .project-header {
+            margin-bottom: 3rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .github-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .github-btn:hover {
+            background: #555;
+        }
+        
+        .demo-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .demo-btn:hover {
+            background: #5568d3;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .image-placeholder {
+            background: #f5f5f5;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .image-placeholder img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        
+        .features-list {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .features-list ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .features-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    
+    <header>
+        <h1>Roguelike Multiplayer Game</h1>
+        <p>A dynamic multiplayer experience with deep progression systems</p>
+    </header>
+    
+    <div class="container">
+        <div class="project-header">
+            <p><strong>Timeline:</strong> June 2024 - Present</p>
+            <p style="margin-top: 0.5rem;"><strong>Role:</strong> Solo Developer</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">GDScript</span>
+                <span class="tech-tag">Godot Engine</span>
+                <span class="tech-tag">Game Design</span>
+                <span class="tech-tag">Multiplayer Networking</span>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/AdamRieden/your-game-repo" class="github-btn" target="_blank">
+                    View on GitHub
+                </a>
+                <a href="#" class="demo-btn">Play Demo (Coming Soon)</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>This roguelike multiplayer game is a passion project that combines classic roguelike mechanics with modern multiplayer gameplay. Players navigate procedurally generated dungeons, collect items, level up their characters, and develop unique skill builds to overcome increasingly difficult challenges.</p>
+            <p style="margin-top: 1rem;">The project demonstrates my ability to design complex game systems, implement networking for multiplayer functionality, and create engaging gameplay loops that keep players coming back.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Key Features</h2>
+            <div class="features-list">
+                <ul>
+                    <li><strong>Dynamic Leveling System:</strong> Players gain experience and level up, unlocking new abilities and stat increases that allow for diverse character builds</li>
+                    <li><strong>Interactive Items:</strong> A wide variety of items with unique effects that can synergize in unexpected ways, creating emergent gameplay moments</li>
+                    <li><strong>Skill Trees:</strong> Multiple skill paths that allow players to specialize their character and adapt to different playstyles</li>
+                    <li><strong>Multiplayer Networking:</strong> Seamless cooperative gameplay where players can team up to tackle dungeons together</li>
+                    <li><strong>Procedural Generation:</strong> Each playthrough offers a unique experience with randomly generated levels and loot</li>
+                    <li><strong>Roguelike Mechanics:</strong> Permadeath and run-based progression that encourages replayability and mastery</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Screenshots & Media</h2>
+            <div class="image-gallery">
+                <div class="image-placeholder">
+                    Gameplay Screenshot 1<br>
+                    (Add your main gameplay image here)
+                </div>
+                <div class="image-placeholder">
+                    Character Leveling UI<br>
+                    (Add your leveling system screenshot)
+                </div>
+                <div class="image-placeholder">
+                    Item/Inventory System<br>
+                    (Add your inventory UI)
+                </div>
+                <div class="image-placeholder">
+                    Multiplayer Action<br>
+                    (Add co-op gameplay footage)
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Technical Challenges</h2>
+            <p><strong>Multiplayer Synchronization:</strong> Implementing robust networking to ensure all players see consistent game state, especially with fast-paced combat and real-time item interactions.</p>
+            <p style="margin-top: 1rem;"><strong>Balancing Systems:</strong> Designing a leveling and item system that feels rewarding without becoming overpowered, requiring extensive playtesting and iteration.</p>
+            <p style="margin-top: 1rem;"><strong>Procedural Generation:</strong> Creating algorithms that generate interesting, playable levels while maintaining performance and ensuring fair difficulty curves.</p>
+        </div>
+        
+        <div class="section">
+            <h2>What I Learned</h2>
+            <p>This project has been an invaluable learning experience in game development. I've gained deep expertise in GDScript and the Godot Engine, learned to implement complex multiplayer systems, and developed strong skills in game design and balancing.</p>
+            <p style="margin-top: 1rem;">Beyond the technical skills, I've learned the importance of iterative design, player feedback, and the art of creating compelling game loops that keep players engaged. Managing a long-term solo project has also taught me discipline, time management, and the persistence needed to bring ambitious ideas to life.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Future Development</h2>
+            <p>The game is still in active development with several planned features including:</p>
+            <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                <li>Additional character classes and skill trees</li>
+                <li>More enemy types and boss encounters</li>
+                <li>Enhanced multiplayer features like guilds and leaderboards</li>
+                <li>Steam integration for achievements and cloud saves</li>
+                <li>Mobile port for cross-platform play</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
+    </footer>
+</body>
+</html>
