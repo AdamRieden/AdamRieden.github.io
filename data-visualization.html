@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Defense Spending Data Visualization - Adam Rieden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: rgb(0, 0, 0);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cheese-header {
+            background-image: url('cheese.jpg');
+
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 2rem 0 0 2rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .project-header {
+            margin-bottom: 3rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .github-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .github-btn:hover {
+            background: #555;
+        }
+
+        .cheese-button {
+            position: relative;
+            width: 150px;
+            height: 50px;
+            display: flex;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            text-align: center;
+            line-height: 50px; /* vertically centers text */
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-decoration: none;
+            overflow: hidden; /* keeps image inside the button */
+        }
+        .cheese-button img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* keeps the image from stretching weirdly */
+            z-index: 0;
+        }
+
+        .cheese-button span {
+            position: relative;
+            z-index: 1; /* puts text above the image */
+        }
+
+        /* overlay for shading */
+        .cheese-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0);  /* invisible by default */
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+
+        /* hover shade */
+        .cheese-button:hover::after {
+            background: #20b2ab64; /* adjust darkness here */
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .image-placeholder {
+            background: #f5f5f5;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 3rem 1rem;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .features-list {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .features-list ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .features-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    
+    <header class="cheese-header">
+        <h1>Department of Defense Spending Data Visualization</h1>
+        <p>Interactive visualizations built through Agile collaboration</p>
+    </header>
+    
+    <div class="container">
+        <div class="project-header">
+            <p><strong>Timeline:</strong> August 2024 - December 2024</p>
+            <p style="margin-top: 0.5rem;"><strong>Course:</strong> Information Visualization - Brandeis University</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Tableau</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">R</span>
+                <span class="tech-tag">Data Analysis</span>
+                <span class="tech-tag">Agile</span>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/COSI116A-Brandeis-InfoVis-Fall23/cosi-116a-f24-final-project-repository-Cooper-13/tree/main" class="github-btn" target="_blank">
+                    View on GitHub
+                </a>
+                <a href="https://cosi116a-brandeis-infovis-fall23.github.io/cosi-116a-f24-final-project-repository-Cooper-13/" class="cheese-button" target="_blank">
+                    <img src="cheese.jpg" alt="View Visualization">
+                    <span>View Visualization</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>This project focused on creating meaningful data visualizations to uncover insights from complex datasets on the spending of the Department of Defense per state. Working in a collaborative team environment, we held weekly sprint reviews and engaged in pair programming sessions to iteratively develop our visualizations.</p>
+            <p style="margin-top: 1rem;">The project emphasized both technical skills in data analysis and visualization tools, as well as soft skills like collaboration, communication, and Agile methodologies.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Key Components</h2>
+            <div class="features-list">
+                <ul>
+                    <li><strong>Weekly Sprint Reviews:</strong> Regular team meetings to review progress, discuss challenges, and plan upcoming work</li>
+                    <li><strong>Pair Programming:</strong> Collaborative coding sessions that improved code quality and knowledge sharing</li>
+                    <li><strong>Interactive Dashboards:</strong> Created dynamic visualizations that allow users to explore data from multiple perspectives</li>
+                    <li><strong>Data Cleaning & Preparation:</strong> Processed raw datasets to ensure accuracy and usability</li>
+                    <li><strong>Statistical Analysis:</strong> Applied statistical methods to identify trends and patterns in the data</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Visualizations</h2>
+            <div class="image-gallery">
+                <div class="image-placeholder">
+                    Main Dashboard<br>
+                    <img src="ExampleVis.png" alt="Data Visualization" style="width:100%; border-radius:5px;">
+                </div>
+                <div class="image-placeholder">
+                    Data Analysis Visualization<br>
+                    <img src="Massachusetts.png" alt="Massachusetts Graph Data" style="width:100%; border-radius:5px;">
+                </div>
+                <div class="image-placeholder">
+                    Interactive Chart<br>
+                    (Visualization added soon)
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Technical Approach</h2>
+            <p><strong>Data Processing:</strong> Used Python and R to clean, transform, and analyze large datasets, ensuring data quality and preparing it for visualization.</p>
+            <p style="margin-top: 1rem;"><strong>Visualization Design:</strong> Employed Tableau to create interactive dashboards that make complex data accessible and understandable to non-technical stakeholders.</p>
+            <p style="margin-top: 1rem;"><strong>Agile Methodology:</strong> Followed sprint-based development with regular standups, reviews, and retrospectives to maintain project momentum and team alignment.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Skills Developed</h2>
+            <p>This project strengthened my abilities in data analysis, visualization design, and collaborative software development. I learned to work effectively in a team environment, communicate technical concepts clearly, and deliver results on a consistent schedule.</p>
+            <p style="margin-top: 1rem;">The experience also deepened my understanding of how to present data in ways that tell compelling stories and drive decision-making.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
+    </footer>
+</body>
+</html>
