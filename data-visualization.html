@@ -57,41 +57,32 @@
                 </ul>
             </div>
         </div>
-
-        <!-- D3 + required libs -->
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="js/topoScript.js"></script>
-
     </div>
        
 
-    <div class="row">
+    <div style="text-align: center; color: #667eea;">
       <h1>Visualization (adapted from class project) </h1> 
     </div>
+    <!-- Button to toggle colors -->
+    <div style="text-align: center; margin: 20px;">
+      <button id="toggleColors" style="padding: 10px 20px; font-size: 16px; width: 224px; margin-left: auto;">Toggle Colors</button>
+    </div>
+
     <div class="row">
       <div class="column left" style="background-color: #fff;">    
         <div class="vis-holder">
           <div class="table-holder" id="table"></div>
         </div>
       </div>
-      
-      <div class="column right" style="background-color: #fff;">
         <div class="vis-holder">
-          
-          <!-- Button to toggle colors -->
-          <div style="text-align: center; margin: 20px;">
-            <button id="toggleColors" style="padding: 10px 20px; font-size: 16px;">Toggle Colors</button>
-          </div>
-
           <div id="popup"></div>
-          <div class="map-holder" id="map">
-            <svg id="vis-svg" preserveAspectRatio="xMidYMid meet" class="marks" viewBox="0 0 1500 500"></svg>
-              <g id="boundary"></g>
-              <g id="states"></g>
-          
-            </svg>
-          </div>
         </div>
+      <div class="column right" style="background-color: #fff; margin-left: 5px;">      
+        <div class="map-holder" id="map">
+          <svg id="vis-svg" preserveAspectRatio="xMidYMid meet" class="marks" viewBox="0 0 1500 500"></svg>
+            <g id="boundary"></g>
+            <g id="states"></g>
+          </div>
       </div>
     </div>
 
@@ -117,6 +108,11 @@
     <script src="js/colors.js"></script>
     <script src="js/render_map.js"></script>
     <script src="lib/colorbrewer.js"></script>
+
+        <!-- D3 + required libs -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/topoScript.js"></script>
+
     
     <footer>
         <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
