@@ -95,7 +95,7 @@ function map() {
                 .style("z-index", 2000) // Bring to front
                 .html(`
                     <strong>${name}</strong><br>
-                    <img src="images/${name}.png" alt="${name}" style="max-width: 200px; display: block; margin: 10px 0;">
+                    <img src="images/datavis/states/${name}.png" alt="${name}" style="max-width: 200px; display: block; margin: 10px 0;">
                 `);
             
            

@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.back-btn {
+    display: inline-block;
+    margin: 2rem 0 0 2rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #f0f0f0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.project-header {
+    margin-bottom: 3rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.github-btn:hover {
+    background: #555;
+}
+
+.demo-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.demo-btn:hover {
+    background: #5568d3;
+}
+
+.section {
+    margin-bottom: 3rem;
+}
+
+.section2 {
+    margin-bottom: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.tech-tag {
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.image-placeholder {
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.image-placeholder img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.features-list {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.features-list ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.features-list li {
+    margin-bottom: 0.75rem;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+/* ===== Media Viewer Upgrades ===== */
+
+.media-viewer {
+    position: relative;
+    width: 100%;
+    max-width: 800px;   /* Controls overall size */
+    height: 400px;      /* Locks height */
+    margin: 2rem auto;
+    background: #f5f5f5;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#media-display {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.media-item {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;    /* Prevents stretching */
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards; 
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Arrows */
+.media-btn {
+    position: static;   /* Removes overlay */
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.media-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.media-btn.left { left: 10px; }
+.media-btn.right { right: 10px; }
+
+/* ===== Dot Indicators ===== */
+
+.media-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+.media-dot {
+    width: 10px;
+    height: 10px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.media-dot.active {
+    background: #667eea;
+}

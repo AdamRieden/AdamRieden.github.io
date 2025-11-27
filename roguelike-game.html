@@ -4,174 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roguelike Multiplayer Game - Adam Rieden</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .back-btn {
-            display: inline-block;
-            margin: 2rem 0 0 2rem;
-            padding: 0.75rem 1.5rem;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-        
-        .back-btn:hover {
-            background: #f0f0f0;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        
-        .project-header {
-            margin-bottom: 3rem;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .github-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-        
-        .github-btn:hover {
-            background: #555;
-        }
-        
-        .demo-btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-        
-        .demo-btn:hover {
-            background: #5568d3;
-        }
-        
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        .section2 {
-            margin-bottom: 2rem;
-            color: rgb(0, 0, 0);
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
-        
-        .tech-tag {
-            background: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .image-placeholder {
-            background: #f5f5f5;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            padding: 3rem 1rem;
-            text-align: center;
-            color: #666;
-            font-style: italic;
-        }
-        
-        .image-placeholder img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        
-        .features-list {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
-        }
-        
-        .features-list ul {
-            margin-left: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .features-list li {
-            margin-bottom: 0.75rem;
-        }
-        
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/roguelike-game.css"/>
 </head>
 <body>
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
@@ -222,22 +55,19 @@
         
         <div class="section">
             <h2>Screenshots & Media</h2>
-            <div class="image-gallery">
-                <div class="image-placeholder">
-                    Gameplay Screenshot<br>
-                    (gameplay image added soon)
-                </div>
-                <div class="image-placeholder">
-                    Spell System<br>
-                    (spell system screenshot added soon)
-                </div>
-                <div class="image-placeholder">
-                    Multiplayer Action<br>
-                    (co-op gameplay footage added soon)
-                </div>
+            <h3>Spell Selections</h3>
+            <div class="media-viewer">
+                <div id="media-display"></div>
+            </div>
+
+            <div class="media-controls">
+                <button class="media-btn" onclick="prevMedia()">❮</button>
+                <div class="media-dots" id="media-dots"></div>
+                <button class="media-btn" onclick="nextMedia()">❯</button>
             </div>
         </div>
         
+
         <div class="section">
             <h2>Technical Challenges</h2>
             <p><strong>Multiplayer Synchronization:</strong> Implementing robust networking to ensure all players see consistent game state, especially with fast-paced combat and real-time item interactions.</p>
@@ -276,5 +106,8 @@
     <footer>
         <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
     </footer>
+
+    <script src="js/carousel.js"></script>
+
 </body>
 </html>
