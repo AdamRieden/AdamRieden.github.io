@@ -1,18 +1,19 @@
 const mediaFiles = [
-    { type: "image", src: "images/roguelike/spells/Windsword.png" },
-    { type: "image", src: "images/roguelike/spells/Resonatingcircles.png" },
-    { type: "image", src: "images/roguelike/spells/Horn.png" },
-    { type: "image", src: "images/roguelike/spells/Shields.png" },
-    { type: "image", src: "images/roguelike/spells/Eye.png" },
-    { type: "image", src: "images/roguelike/spells/Moon.png" },
-    { type: "image", src: "images/roguelike/spells/Sun.png" },
-    { type: "image", src: "images/roguelike/spells/Watcher.png" }
-];
-
+    { image:"images/roguelike/spells/Windsword.png", video: "videos/WindSwordDemo.mp4" },
+    { image: "images/roguelike/spells/Resonatingcircles.png", video: "videos/ResCircDemo.mp4" },
+    { image: "images/roguelike/spells/Horn.png", video: "videos/SpartHornDemo.mp4" },
+    { image: "images/roguelike/spells/Shields.png", video: "videos/ShieldsDemo.mp4" },
+    { image: "images/roguelike/spells/Eye.png", video: "videos/GorgonEyeDemo.mp4" },
+    { image: "images/roguelike/spells/Moon.png", video: "videos/MoonDemo.mp4" },
+    { image: "images/roguelike/spells/Sun.png", video: "videos/SunPeopleDemo.mp4" },
+    { image: "images/roguelike/spells/Watcher.png", video: "videos/WatcherDemo.mp4" }
+    ];
+    
 let currentIndex = 0;
-const display = document.getElementById("media-display");
+
+const imageDisplay = document.getElementById("media-image");
+const videoDisplay = document.getElementById("media-video");
 const dotsContainer = document.getElementById("media-dots");
-let autoCycleInterval;
 
 /* ===== Create Dots ===== */
 mediaFiles.forEach((_, index) => {
@@ -21,66 +22,57 @@ mediaFiles.forEach((_, index) => {
     dot.onclick = () => {
         currentIndex = index;
         showMedia();
-        resetAutoCycle();
     };
     dotsContainer.appendChild(dot);
 });
 
-/* ===== Show Media With Fade ===== */
+/* ===== Render Media Pair ===== */
 function showMedia() {
-    display.innerHTML = "";
+    imageDisplay.innerHTML = "";
+    videoDisplay.innerHTML = "";
+
     const item = mediaFiles[currentIndex];
 
-    let element;
-    if (item.type === "image") {
-        element = document.createElement("img");
-        element.src = item.src;
-    } else {
-        element = document.createElement("video");
-        element.src = item.src;
-        element.autoplay = true;
-        element.loop = true;
-        element.muted = true;
-    }
+    // Image
+    const img = document.createElement("img");
+    img.src = item.image;
+    imageDisplay.appendChild(img);
 
-    element.className = "media-item";
-    display.appendChild(element);
+    // Video
+    const video = document.createElement("video");
+    video.src = item.video;
+    video.controls = true;     // ✅ Let user scrub
+    video.autoplay = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    // Auto-advance when video finishes
+    video.onended = () => {
+        nextMedia();
+    };
+
+    videoDisplay.appendChild(video);
 
     updateDots();
 }
 
-/* ===== Navigation ===== */
+/* ===== Controls ===== */
 function nextMedia() {
     currentIndex = (currentIndex + 1) % mediaFiles.length;
     showMedia();
-    resetAutoCycle();
 }
 
 function prevMedia() {
     currentIndex = (currentIndex - 1 + mediaFiles.length) % mediaFiles.length;
     showMedia();
-    resetAutoCycle();
 }
 
-/* ===== Dot State ===== */
+/* ===== Dots ===== */
 function updateDots() {
     document.querySelectorAll(".media-dot").forEach((dot, index) => {
         dot.classList.toggle("active", index === currentIndex);
     });
 }
 
-/* ===== Auto Cycling ===== */
-function startAutoCycle() {
-    autoCycleInterval = setInterval(() => {
-        nextMedia();
-    }, 4000);   // ✅ Change every 4 seconds
-}
-
-function resetAutoCycle() {
-    clearInterval(autoCycleInterval);
-    startAutoCycle();
-}
-
 /* ===== Init ===== */
 showMedia();
-startAutoCycle();
