@@ -14,7 +14,7 @@
         <p>A dynamic multiplayer experience with deep progression systems</p>
     </header>
     
-    <div class="container">
+    <div class="container" style="margin-bottom: 0px; padding-bottom: 12px;">
         <div class="project-header">
             <p><strong>Timeline:</strong> June 2024 - Present</p>
             <p style="margin-top: 0.5rem;"><strong>Role:</strong> Solo Developer</p>
@@ -51,21 +51,40 @@
                 </ul>
             </div>
         </div>
-        
-    <div class="section"> 
-    <h2>Screenshots & Media</h2>
-    <h3>Spell Pages and Demo Videos</h3>
-        <div class="media-viewer vertical"> 
-            <div id="media-image"></div> 
-            <div id="media-video"></div> 
-        </div> 
-        <div class="media-controls"> 
-            <button class="media-btn" onclick="prevMedia()">❮</button> 
-                <div class="media-dots" id="media-dots"></div> 
-            <button class="media-btn" onclick="nextMedia()">❯</button> 
-        </div> 
-    <h3 style="margin-top: 2rem;">Multiplayer Gameplay Demo Video Coming Soon</h3>
+        <div class="section" style="margin-bottom: 0;"> 
+        <h2>Screenshots & Media</h2>
+        <h3>Multiplayer Gameplay Demo</h3>
+        </div>
     </div>
+        <div class="media"> 
+        <video height="auto" controls>
+            <source src="videos/roguelike/GameDemo_web.mp4" alt="multiplay-game-demo" type="video/mp4">
+        </video>
+    </div>
+    <div class="container" style="padding-top: 12px;">
+        <div class="section">
+        <h3 style="margin-top: 2rem;">Spell Pages & Demo Videos</h3>
+            <div class="media-viewer vertical" style="min-height: 760px; min-width: 700px;"> 
+                <div class="media-image"></div> 
+                <div class="media-video"></div> 
+            </div> 
+            <div class="media-controls"> 
+                <button class="media-btn media-prev">❮</button> 
+                <div class="media-dots"></div> 
+                <button class="media-btn media-next">❯</button> 
+            </div> 
+
+        <h3 style="margin-top: 1rem;">Items & Demo Videos</h3>
+            <div class="media-viewer vertical" style="min-height: 530px; min-width: 700px;"> 
+                <div class="media-video"></div> 
+                <div class="media-image"></div> 
+            </div> 
+            <div class="media-controls"> 
+                <button class="media-btn media-prev">❮</button> 
+                <div class="media-dots"></div> 
+                <button class="media-btn media-next">❯</button> 
+            </div>
+        </div>
         
 
         <div class="section">
@@ -102,12 +121,14 @@
             </ul>
         </div>
     </div>
+    </div>
     
     <footer>
         <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
     </footer>
 
-    <script src="js/carousel.js"></script>
+    <script src="js/spellcarousel.js"></script>
+    <script src="js/itemcarousel.js"></script>
 
 </body>
 </html>
