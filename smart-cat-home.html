@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cat Home - Adam Rieden</title>
+    <link rel="stylesheet" href="css/cathome.css"/>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    
+    <header>
+        <h1>Catopia: Smart Cat Home</h1>
+        <p>IoT embedded systems for intelligent pet monitoring</p>
+    </header>
+    
+    <div class="container">
+        <div class="project-header">
+            <p><strong>Timeline:</strong> Spring 2026 Semester</p>
+            <p style="margin-top: 0.5rem;"><strong>Course:</strong> Embedded Systems - Brandeis University</p>
+            <p style="margin-top: 0.5rem;"><strong>Team:</strong> Matthew Yue, Garret Rieden, Adam Rieden, Yuxuan Liu</p>
+            <p style="margin-top: 0.5rem;"><strong>My Role:</strong> Hardware Testing & Integration</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">Raspberry Pi Pico</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">FastAPI</span>
+                <span class="tech-tag">MicroPython</span>
+                <span class="tech-tag">Load Cells (HX711)</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Servo Motors</span>
+                <span class="tech-tag">Stepper Motors</span>
+                <span class="tech-tag">HTML/CSS/JavaScript</span>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/MatthewYyf/catopia-smart-home" class="github-btn" target="_blank">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>Catopia is a smart cat care system designed to help owners monitor and support their cat's daily needs when they are not physically present. The system combines automated feeding, water tracking, live video monitoring, interactive laser play, and vocalization analysis into one connected platform built around embedded systems engineering.</p>
+            <p style="margin-top: 1rem;">The system uses a Raspberry Pi as the central controller running a FastAPI backend, frontend dashboard, camera stream, SQLite database, and audio processing. Multiple Raspberry Pi Pico microcontrollers handle low-level hardware control for the food dispenser, water pump, load cells, and pan-tilt laser system. This modular architecture demonstrates practical applications of embedded systems, real-time sensor integration, and full-stack IoT development.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Key Features</h2>
+            <div class="features-list">
+                <ul>
+                    <li><strong>Automated Kibble Dispenser:</strong> Motorized auger feeder with stepper motor control that dispenses measured amounts of food based on load cell weight tracking</li>
+                    <li><strong>Water Monitoring & Pump System:</strong> Load cell tracks water consumption while a relay-controlled pump maintains water levels in the bowl</li>
+                    <li><strong>Interactive Pan-Tilt Laser Toy:</strong> Dual-servo system creates randomized laser movements to stimulate natural hunting behavior and mental enrichment</li>
+                    <li><strong>Live Camera Feed:</strong> Real-time video monitoring accessible through the web dashboard</li>
+                    <li><strong>Cat Vocalization Recognition:</strong> Microphone-based system using MFCC feature extraction and Hidden Markov Models to classify meows into behavioral contexts (food-seeking, isolation, brushing)</li>
+                    <li><strong>Voice Memo Playback:</strong> Bluetooth speaker allows owners to record and play voice memos to comfort their cat</li>
+                    <li><strong>Consumption Tracking:</strong> Median-filtered load cell readings detect stable weight changes to accurately log food and water intake events</li>
+                    <li><strong>Web Dashboard:</strong> Browser-based interface for live monitoring, historical data visualization, device control, and system status</li>
+                    <li><strong>SQLite Database:</strong> Stores daily reports, voice logs, and consumption events for trend analysis and health monitoring</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>System Architecture</h2>
+            <p style="margin-bottom: 1rem;">The system uses a modular two-layer architecture:</p>
+            <p><strong>Raspberry Pi (Main Controller):</strong> Runs FastAPI backend server, SQLite database, frontend dashboard, camera stream, and audio processing for vocalization recognition.</p>
+            <p style="margin-top: 1rem;"><strong>Raspberry Pi Pico Microcontrollers (Hardware Control Layer):</strong></p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li><strong>Pico 1:</strong> Controls pan-tilt servos and laser module for interactive play</li>
+                <li><strong>Pico 2:</strong> Manages stepper motor for kibble dispenser and food bowl load cell</li>
+                <li><strong>Pico 3:</strong> Controls water pump relay and water bowl load cell</li>
+                <li><strong>Pico 4:</strong> Dedicated weight-sensing load cell for body weight tracking</li>
+            </ul>
+            <div class="standalone-pic">
+                <img src="images/Catopia/Hardware_Schematic.png" alt="Hardware"></img>
+            </div>
+            <p style="margin-top: 1rem;">Each Pico connects to the local network, sends JSON telemetry to the backend, and polls for commands. This separation keeps low-level hardware timing isolated from high-level application logic.</p>
+        </div>
+
+        <div class="section">
+            <h2>Technical Implementation</h2>
+            <p><strong>Backend (FastAPI + Python):</strong> The Raspberry Pi runs a FastAPI server that manages communication between Pico devices, stores system state, handles database queries, and serves the frontend dashboard. A consumption tracker service uses median-filtered load cell readings to detect stable weight changes and log food/water intake events, reducing sensor noise from vibrations or cat movements.</p>
+            <p style="margin-top: 1rem;"><strong>Database (SQLite):</strong> Three main tables store operational data: daily_reports (food intake, water intake, body weight summaries), voice_logs (detected vocalization classifications), and consumption_events (timestamped food/water changes). The frontend queries this data to display trend graphs and historical analytics.</p>
+            <p style="margin-top: 1rem;"><strong>Frontend (HTML/CSS/JavaScript):</strong> Browser-based dashboard uses fetch() API to communicate with backend endpoints. Displays live sensor readings, device status, camera feed, vocalization results, and provides control buttons for feeding, water pump, laser play, and voice memo recording.</p>
+            <p style="margin-top: 1rem;"><strong>Pico Firmware (MicroPython):</strong> Each Pico runs an independent control loop: read sensors, send JSON telemetry to backend, check for queued commands, execute commands, repeat. One Pico controls PWM servos for the laser toy, another manages the stepper motor for food dispensing, and others handle water pump relays and HX711 load cell readings.</p>
+            <p style="margin-top: 1rem;"><strong>Cat Vocalization Recognition:</strong> Audio system records cat sounds, extracts MFCC (Mel-Frequency Cepstral Coefficient) features, and classifies vocalizations using class-specific Hidden Markov Models. The system identifies behavioral contexts such as food-seeking, isolation, or brushing-related meows. Energy thresholds and voice activity detection filter out background noise before classification.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Challenges & Solutions</h2>
+            <p><strong>Power Management:</strong> Components like the water pump and stepper motors required more current than the Pico or Pi could provide directly. Solution: Implemented external power sources with shared grounds, relays, and proper power distribution to handle high-current devices safely.</p>
+            <p style="margin-top: 1rem;"><strong>Load Cell Calibration & Noise:</strong> Raw load cell values don't directly correspond to weight, and sensor noise from vibrations made consumption detection difficult. Solution: Calibrated each sensor with known weights and implemented median filtering across multiple readings to identify stable weight states before logging consumption events.</p>
+            <p style="margin-top: 1rem;"><strong>Network Communication Reliability:</strong> Pico devices sometimes had inconsistent WiFi connections or failed to poll commands properly. Solution: Implemented retry logic, improved polling frequency, and added connection status monitoring to the backend.</p>
+            <p style="margin-top: 1rem;"><strong>Hardware Integration Complexity:</strong> Coordinating multiple Picos, sensors, actuators, and power systems in one physical enclosure required extensive testing. Solution: Modular design allowed each subsystem to be tested independently before full integration, and clear cable management prevented shorts and connection issues.</p>
+        </div>
+        
+        <div class="section">
+            <h2>My Contributions</h2>
+            <p>As the <strong>Hardware Tester & Integrator</strong> on the Catopia team, I was responsible for:</p>
+            <div class="features-list">
+                <ul>
+                    <li><strong>Load Cell Integration:</strong> Wired and implemented starter code for three HX711 load cell amplifier boards used in food, water, and weight monitoring</li>
+                    <li><strong>Water Pump System:</strong> Designed wiring and control logic for relay-controlled water pump</li>
+                    <li><strong>Pressure Sensor Development:</strong> Early-stage wiring and code development for pressure sensing (later replaced by load cells)</li>
+                    <li><strong>Physical Assembly:</strong> Assembled the complete cat house structure, integrating all hardware components into the enclosure</li>
+                    <li><strong>Voice Memo Feature:</strong> Developed website interface and microphone recording functionality to capture and store owner voice memos</li>
+                    <li><strong>Bluetooth Speaker Setup:</strong> Configured Bluetooth speaker for playback of recorded voice memos</li>
+                    <li><strong>Dataset Research:</strong> Sourced cat vocalization dataset from Zenodo for training the meow classification model</li>
+                    <li><strong>3D Model Sourcing:</strong> Found appropriate 3D models for load cell mounts and hardware brackets</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Demo Videos and Pictures</h2>
+            <div class="features-list">
+                <div class="demo-section">
+                    <div class="demo-media">
+                        <div class="video-placeholder">
+                            <video controls><source src="videos/CatHome/KibbleDisp_web.mp4" type="video/mp4"></video>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <p><strong>Kibble Dispenser System:</strong> Shows the auger feeder dispensing kibble through controlled stepper motor rotation. As the bowl approaches target weight (via load cell), the system slows dispensing rate to avoid overfeeding.</p>
+                    </div>
+                </div>
+
+                <div class="demo-section">
+                    <div class="demo-media">
+                        <div class="video-placeholder">
+                            <video controls><source src="videos/CatHome/CatLaser_web.mp4" type="video/mp4"></video>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <p><strong>Laser Pan-Tilt System:</strong> Demonstrates dual-servo system creating randomized laser movements that emulate prey behavior to encourage natural hunting instincts and mental stimulation.</p>
+                    </div>
+                </div>
+
+                <div class="demo-section">
+                    <div class="demo-media">
+                        <div class="poster-placeholder">
+                            <img src="images/Catopia/Water Bowl Cropped.jpg" alt="Water Bowl"></img>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <p><strong>Water Bowl System:</strong> Shows relay-controlled water pump integrated with HX711 load cell to monitor water consumption while maintaining bowl levels.</p>
+                    </div>
+                </div>
+                    
+                <div class="demo-section">
+                    <div class="demo-media">
+                        <div class="poster-placeholder">
+                            <img src="images/Catopia/FullInsideCatHouseZ3.jpg" alt="Cat Mic"></img>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <p><strong>Cat Vocalization Recognition System:</strong> Microphone mounted inside the top of the cat house records cat vocalizations and analyzes them using MFCC (Mel-Frequency Cepstral Coefficient) feature extraction and Hidden Markov Models. The system classifies meows into three behavioral contexts—food-seeking, isolation, and brushing—trained on a cat vocalization dataset from Zenodo. This helps owners understand their cat's emotional state and needs even when away from home, with classifications logged to the database and displayed on the dashboard for behavior tracking over time.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="section">
+            <h2>Skills Demonstrated</h2>
+            <p>This embedded systems project showcases comprehensive hardware-software integration skills including Raspberry Pi and Pico programming, load cell sensor interfacing with HX711 amplifiers, motor control (stepper and servo), relay circuits, power management, and multi-device network communication.</p>
+            <p style="margin-top: 1rem;">On the software side, the project demonstrates full-stack development with FastAPI backend, SQLite database design, frontend JavaScript development, MicroPython firmware programming, and real-time data processing with noise filtering algorithms.</p>
+            <p style="margin-top: 1rem;">Beyond technical implementation, the project strengthened teamwork, parallel development coordination, hardware debugging, and delivering a complex integrated prototype under academic deadlines. The modular architecture and clear separation between hardware control and application logic demonstrates scalable embedded systems design principles.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Lessons Learned & Future Improvements</h2>
+            <p><strong>Earlier Integration Testing:</strong> Hardware components that work individually can behave differently when integrated into the full system. Power issues, wiring problems, and sensor instabilities often appeared late in development. Future projects would benefit from earlier end-to-end integration testing.</p>
+            <p style="margin-top: 1rem;"><strong>Hardware Reliability:</strong> Some components were less reliable than expected (e.g., water pump control, load cell consistency on demo day). Improvements would include better motor drivers, protective circuits, more robust mounting, and backup power systems.</p>
+            <p style="margin-top: 1rem;"><strong>Potential Enhancements:</strong></p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Manual laser control through dashboard (current version uses randomized movement only)</li>
+                <li>Quieter food dispenser mechanism to avoid startling cats</li>
+                <li>Automated litter box integration for complete health monitoring</li>
+                <li>Advanced scheduling system for feeding, play sessions, and voice memo playback</li>
+                <li>Additional interactive toys beyond the laser for varied enrichment</li>
+                <li>Mobile app with push notifications and remote access</li>
+                <li>Real-world testing with actual cats to validate safety and usefulness</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic; color: #666;">Note: This prototype was not tested on real cats, so its actual impact on cat behavior and owner satisfaction remains unclear. The project serves as a proof of concept for future smart pet care systems.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Adam Rieden. All rights reserved.</p>
+    </footer>
+</body>
+</html>
